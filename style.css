@@ -1,0 +1,1326 @@
+/*
+ * differ styles.
+ *
+ * The rules after the "differ" sections are Phabricator's own stylesheets with the Celerity
+ * variables from CelerityDefaultPostprocessor substituted.
+ */
+
+/* From phabricator/webroot/rsrc/css/core/core.css */
+body, div, dl, dt, dd, ul, ol, li,
+h1, h2, h3, h4, h5, h6,
+pre, form, fieldset,
+p, blockquote, th, td, button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+address, caption, cite, code, dfn, th, var {
+  font-style: normal;
+  font-weight: normal;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+caption, th {
+  text-align: left;
+}
+
+td, th {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: bold;
+}
+
+body {
+  font: 13px 'Segoe UI', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  direction: ltr;
+  text-align: left;
+  unicode-bidi: embed;
+  background: #f3f5f7;
+  color: #000;
+  overflow-y: scroll;
+}
+
+table {
+  font-size: inherit;
+  font: 100%;
+}
+
+h1 {
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+  color: #136CB2;
+  cursor: pointer;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* From phabricator/webroot/rsrc/css/core/remarkup.css */
+.PhabricatorMonospaced {
+  font: 11px/15px "Menlo", "Consolas", "Monaco", monospace;
+}
+
+/* differ: the page, after phui-two-column-view.css (32px at the sides on desktop, 24px above when
+   there is no header), phui-object-box.css (20px below a box) and phui-box.css. */
+.differ-page {
+  padding: 24px 32px 20px;
+}
+
+.differ-box {
+  border: 1px solid #BFCFDA;
+  background-color: #fff;
+  border-radius: 3px;
+}
+
+/* differ: Phabricator's banner holds a 30px menu button, which differ leaves out. This keeps the
+   banner the same height. */
+.diff-banner {
+  min-height: 30px;
+}
+
+/* differ: collapsed context and shielded files. */
+.differential-diff tr.differ-hidden,
+.differ-unshielded {
+  display: none;
+}
+
+/* From phabricator/webroot/rsrc/css/application/differential/changeset-view.css */
+.differential-changeset {
+  position: relative;
+  margin: 0;
+  padding-top: 16px;
+  overflow-x: auto;
+
+  /* Fixes what seems to be a layout bug in Firefox which causes scrollbars,
+     to appear unpredictably, see discussion in T7690. */
+  overflow-y: hidden;
+}
+
+.device-phone .differential-changeset {
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.differential-diff {
+  background: #fff;
+  width: 100%;
+  border-top: 1px solid #BFCFDA;
+  border-bottom: 1px solid #BFCFDA;
+  table-layout: fixed;
+}
+
+.differential-diff.diff-2up {
+  min-width: 780px;
+}
+
+.differential-diff col.num {
+  width: 45px;
+}
+
+.device .differential-diff.diff-1up col.num {
+  width: 32px;
+}
+
+.differential-diff.diff-2up col.left,
+.differential-diff.diff-2up col.right {
+  width: 49.25%;
+}
+
+.differential-diff.diff-1up col.unified {
+  width: 99.5%;
+}
+
+.differential-diff col.copy {
+  width: 0.5%;
+}
+
+.differential-diff col.cov {
+  width: 1%;
+}
+
+.differential-diff td {
+  vertical-align: top;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  padding: 1px 8px;
+}
+
+.device .differential-diff td {
+  padding: 1px 4px;
+}
+
+.differential-diff td .zwsp {
+  position: absolute;
+  width: 0;
+}
+
+.differential-diff th {
+  text-align: right;
+  padding: 1px 6px 1px 0;
+  vertical-align: top;
+  background: #F8F9FC;
+  color: #6B748C;
+  cursor: pointer;
+  border-right: 1px solid #DDE8EF;
+  overflow: hidden;
+
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.prose-diff {
+  padding: 12px 0;
+  white-space: pre-wrap;
+  color: #74777D;
+}
+
+.prose-diff-frame {
+  padding: 12px;
+}
+
+.prose-diff span.old,
+.prose-diff span.new {
+  padding: 0 2px;
+}
+
+.prose-diff span.old,
+.prose-diff span.new {
+  color: #4B4D51;
+}
+
+.differential-changeset-immutable .differential-diff th {
+  cursor: auto;
+}
+
+.differential-diff td.old {
+  background: rgba(251, 175, 175, .3);
+}
+
+.differential-diff td.new {
+  background: rgba(151, 234, 151, .3);
+}
+
+.differential-diff td.old-rebase {
+  background: #ffeeee;
+}
+
+.differential-diff td.new-rebase {
+  background: #eeffee;
+}
+
+.differential-diff td.old span.bright,
+.differential-diff td.old-full,
+.prose-diff span.old {
+  background: rgba(251, 175, 175, .7);
+}
+
+.differential-diff td.new span.bright,
+.differential-diff td.new-full,
+.prose-diff span.new {
+  background: rgba(151, 234, 151, .6);
+}
+
+.differential-diff td.copy {
+  min-width: 0.5%;
+  width: 0.5%;
+  padding: 0;
+}
+
+.differential-diff td.new-copy,
+.differential-diff td.new-copy span.bright {
+  background: #f1c40f;
+}
+
+.differential-diff td.new-move,
+.differential-diff td.new-move span.bright {
+  background: #fdf5d4;
+}
+
+.differential-diff td.comment {
+  background: #dddddd;
+}
+
+.differential-diff td.cov {
+  padding: 0;
+}
+
+td.cov-U {
+  background: #dd8866;
+}
+
+td.cov-C {
+  background: #66bbff;
+}
+
+td.cov-N {
+  background: #ddeeff;
+}
+
+td.cov-X {
+  background: #aa00aa;
+}
+
+td.cov-I {
+  background: #F7F7F7;
+}
+
+.differential-diff td.source-cov-C,
+.differential-diff td.source-cov-C span.bright {
+  background: #cceeff;
+}
+
+.differential-diff td.source-cov-U,
+.differential-diff td.source-cov-U span.bright {
+  background: #ffbb99;
+}
+
+.differential-diff td.source-cov-N,
+.differential-diff td.source-cov-N span.bright {
+  background: #f3f6ff;
+}
+
+.differential-diff td.show-more,
+.differential-diff th.show-context-line,
+.differential-diff td.show-context,
+.differential-diff td.differential-shield {
+  background: #F8F9FC;
+  padding: 12px 0;
+  border-top: 1px solid #DDE8EF;
+  border-bottom: 1px solid #DDE8EF;
+}
+
+.device .differential-diff td.show-more,
+.device .differential-diff th.show-context-line,
+.device .differential-diff td.show-context,
+.device .differential-diff td.differential-shield {
+  padding: 6px 0;
+}
+
+.differential-diff td.show-more,
+.differential-diff td.differential-shield {
+  font: 13px 'Segoe UI', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  white-space: normal;
+}
+
+.differential-diff td.show-more {
+  text-align: center;
+  color: #6B748C;
+}
+
+.differential-diff th.show-context-line {
+  padding-right: 6px;
+}
+
+.differential-diff td.show-context {
+  padding-left: 14px;
+}
+
+.differential-diff td.differential-shield {
+  text-align: center;
+}
+
+.differential-diff td.differential-shield a {
+  font-weight: bold;
+}
+
+.differential-diff .differential-image-diff {
+  background-image: url(/rsrc/image/checker_light.png);
+}
+
+.differential-diff .differential-image-diff:hover {
+  background-image: url(/rsrc/image/checker_dark.png);
+}
+
+.differential-diff .differential-image-diff td {
+  padding: 8px;
+}
+
+.differential-image-stage {
+  overflow: auto;
+}
+
+.differential-meta-notice {
+  border-top: 1px solid #c9b8a8;
+  border-bottom: 1px solid #c9b8a8;
+  background-color: #fdf3da;
+  padding: 12px;
+}
+
+.differential-meta-notice + .differential-diff {
+  border-top: none;
+}
+
+.differential-changeset h1 {
+  font-size: 15px;
+  padding: 2px 0 20px 12px;
+  line-height: 20px;
+  color: #000;
+}
+
+.device-phone .differential-changeset h1 {
+  word-break: break-word;
+  margin-right: 8px;
+}
+
+.differential-reticle {
+  background-color: #fdf3da;
+  border: 1px solid #c9b8a8;
+  position: absolute;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.differential-diff .inline > td {
+  padding: 0;
+}
+
+.differential-loading {
+  border-top: 1px solid #c9b8a8;
+  border-bottom: 1px solid #c9b8a8;
+  background-color: #fdf3da;
+  padding: 12px;
+  text-align: center;
+}
+
+.differential-collapse-undo {
+  color: #464C5C;
+  padding: 12px;
+  border: 1px solid #2980b9;
+  text-align: center;
+  background-color: #daeaf3;
+  margin: 8px;
+}
+
+.differential-collapse-undo a {
+  font-weight: bold;
+}
+
+.differential-file-icon-header .phui-icon-view {
+  display: inline-block;
+  margin: 0 6px 2px 0;
+  vertical-align: middle;
+  font-size: 14px;
+}
+
+.device-phone .differential-file-icon-header .phui-icon-view {
+  display: none;
+}
+
+.differential-changeset-buttons {
+  float: right;
+  margin-right: 12px;
+}
+
+.device-phone .differential-changeset-buttons .button .phui-button-text {
+  visibility: hidden;
+  width: 0;
+  margin-left: 8px;
+}
+
+.differential-property-table {
+  margin: 12px;
+  background: #F7F7F7;
+  border: 1px solid #BFCFDA;
+  border-bottom: 1px solid #8C98B8;
+}
+
+.differential-property-table td em {
+  color: #92969D;
+}
+
+.differential-property-table td.oval {
+  background: #ffd0d0;
+  width: 50%;
+}
+
+.differential-property-table td.nval {
+  background: #d0ffd0;
+  width: 50%;
+}
+
+tr.differential-inline-hidden {
+  display: none;
+}
+
+tr.differential-inline-loading {
+  opacity: 0.5;
+}
+
+.differential-review-stage {
+  position: relative;
+}
+
+.diff-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #C7CCD9;
+  padding: 8px 18px;
+  vertical-align: middle;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 28px;
+}
+
+.diff-banner-path {
+  color: #74777D;
+}
+
+.diff-banner-buttons .button {
+  margin-left: 8px;
+}
+
+.diff-banner-has-unsaved,
+.diff-banner-has-unsubmitted,
+.diff-banner-has-draft-done {
+  background: #fdf3da;
+}
+
+.diff-banner-buttons {
+  float: right;
+}
+
+/* From phabricator/webroot/rsrc/css/aphront/table-view.css */
+.aphront-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.aphront-table-view {
+  width: 100%;
+  border-collapse:  collapse;
+  background: #fff;
+  border: 1px solid #BFCFDA;
+  border-bottom: 1px solid #8C98B8;
+}
+
+.aphront-table-view-fixed {
+  table-layout: fixed;
+}
+
+.aphront-table-view-fixed th {
+  box-sizing: border-box;
+}
+
+.aphront-table-notice {
+  padding: 12px 16px;
+  color: #464C5C;
+  border-bottom: 1px solid #DDE8EF;
+}
+
+.phui-two-column-view .aphront-table-notice .phui-info-view {
+  margin: 0;
+}
+
+.aphront-table-view tr.alt {
+  background: #F7F7F7;
+}
+
+.device-desktop .aphront-table-view tr:hover {
+  background: #ECEEF4;
+}
+
+.device-desktop .aphront-table-view tr.no-data:hover {
+  background: inherit;
+}
+
+.aphront-table-view th {
+  font-weight: bold;
+  white-space: nowrap;
+  color: #6B748C;
+  text-shadow: 0 1px 0 white;
+  font-weight: bold;
+  border-bottom: 1px solid #DDE8EF;
+  background-color: #F8F9FC;
+}
+
+th.aphront-table-view-sortable-selected {
+  background-color: #EBECEE;
+}
+
+.aphront-table-view th a,
+.aphront-table-view th a:hover,
+.aphront-table-view th a:link {
+  color: #6B748C;
+  text-shadow: 0 1px 0 white;
+  display: block;
+  text-decoration: none;
+}
+
+.aphront-table-view th a:hover {
+  text-decoration: underline;
+  color: #464C5C;
+}
+
+.aphront-table-view td.header {
+  padding: 4px 8px;
+  white-space: nowrap;
+  text-align: right;
+  color: #6B748C;
+  font-weight: bold;
+  vertical-align: top;
+}
+
+.aphront-table-view td {
+  white-space: nowrap;
+  vertical-align: middle;
+  color: #464C5C;
+}
+
+.aphront-table-down-sort {
+  display: inline-block;
+  margin-top: 5px;
+  width: 0;
+  height: 0;
+  vertical-align: top;
+  border-top: 4px solid #6B748C;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+  content: "";
+}
+
+.aphront-table-up-sort {
+  display: inline-block;
+  margin-top: 5px;
+  width: 0;
+  height: 0;
+  vertical-align: top;
+  border-bottom: 4px solid #6B748C;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+  content: "";
+}
+
+/* - Padding -------------------------------------------------------------------
+
+  On desktops, we have more horizontal space and use it to space columns out.
+
+  On devices, we make each row slightly taller to create a larger hit target
+  for links.
+
+*/
+
+.aphront-table-view th {
+  padding: 8px 10px;
+}
+
+.aphront-table-view td {
+  padding: 8px 10px;
+}
+
+.device-tablet .aphront-table-view th,
+.device-phone .aphront-table-view th {
+  overflow: hidden;
+}
+
+.aphront-table-view td.sorted-column {
+  background: #F8F9FC;
+}
+
+.aphront-table-view tr.alt td.sorted-column {
+  background: #EBECEE;
+}
+
+.aphront-table-view td.action {
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+.aphront-table-view td.larger {
+  font-size: 14px;
+}
+
+.aphront-table-view td.pri {
+  font-weight: bold;
+  color: #464C5C;
+}
+
+.aphront-table-view td.top {
+  vertical-align: top;
+}
+
+.aphront-table-view td.wide {
+  white-space: normal;
+  width: 100%;
+}
+
+.aphront-table-view th.right,
+.aphront-table-view td.right {
+  text-align: right;
+}
+
+.aphront-table-view td.mono {
+  font-family: "Monaco", monospace;
+  font-size: 11px;
+}
+
+.aphront-table-view td.n {
+  font-family: "Monaco", monospace;
+  font-size: 11px;
+  text-align: right;
+}
+
+.aphront-table-view td.nudgeright, .aphront-table-view th.nudgeright {
+  padding-right: 0;
+}
+
+.aphront-table-view td.wrap {
+  white-space: normal;
+}
+
+.aphront-table-view td.prewrap {
+  font-family: "Monaco", monospace;
+  font-size: 11px;
+  white-space: pre-wrap;
+}
+
+.aphront-table-view td.narrow {
+  width: 1px;
+}
+
+.aphront-table-view td.icon, .aphront-table-view th.icon {
+  width: 1px;
+  padding: 0px;
+}
+
+.aphront-table-view td.icon + td.icon {
+  padding-left: 8px;
+}
+
+div.single-display-line-bounds {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+span.single-display-line-content {
+  white-space: pre;
+  position: absolute;
+}
+
+.device-phone span.single-display-line-content {
+  white-space: nowrap;
+  position: static;
+}
+
+.aphront-table-view td.object-link {
+  white-space: nowrap;
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 0;
+}
+
+.aphront-table-view tr.closed td.object-link .object-name,
+.aphront-table-view tr.alt-closed td.object-link .object-name {
+  text-decoration: line-through;
+  color: rgba(0,0,0, 0.5);
+}
+
+.aphront-table-view tr.closed td.object-link a,
+.aphront-table-view tr.alt-closed td.object-link a {
+  color: rgba(0,0,0, 0.5);
+}
+
+.aphront-table-view tr.closed td.graph-status,
+.aphront-table-view tr.alt-closed td.graph-status,
+.object-graph-table em {
+  color: #92969D;
+}
+
+.aphront-table-view tr.highlighted {
+  background: #fdf9e4;
+}
+
+.aphront-table-view tr.alt-highlighted {
+  background: #fdf3da;
+}
+
+.aphront-table-view tr.diff-removed,
+.aphront-table-view tr.alt-diff-removed {
+  background: #f4dddb
+}
+
+.aphront-table-view tr.diff-added,
+.aphront-table-view tr.alt-diff-added {
+  background: #d7eddf
+}
+
+.aphront-table-view tr.no-data td {
+  padding: 16px;
+  text-align: center;
+  color: #92969D;
+  font-style: italic;
+}
+
+.aphront-table-view td.thumb img {
+  max-width: 64px;
+  max-height: 64px;
+}
+
+.aphront-table-view td.threads {
+  font-family: monospace;
+  white-space: pre;
+  padding: 0 0 0 8px;
+}
+
+.aphront-table-view td.threads canvas {
+  display: block;
+}
+
+.aphront-table-view td.radio {
+  text-align: center;
+  padding: 2px 4px 0px;
+}
+
+.aphront-table-view th.center,
+.aphront-table-view td.center {
+  text-align: center;
+}
+
+.device .aphront-table-view td + td.center,
+.device .aphront-table-view th + th.center {
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.device-desktop .aphront-table-view-device {
+  display: none;
+}
+
+.device-tablet .aphront-table-view-nodevice,
+.device-phone .aphront-table-view-nodevice {
+  display: none;
+}
+
+.aphront-table-view td.link {
+  padding: 0;
+}
+
+.aphront-table-view td.link a {
+  display: block;
+  padding: 6px 8px;
+  font-weight: bold;
+}
+
+.phui-object-box .aphront-table-view {
+  border: none;
+}
+
+/* From phabricator/webroot/rsrc/css/application/differential/table-of-contents.css */
+.differential-toc-meta {
+  color: #92969D;
+  padding-top: 2px;
+}
+
+table.aphront-table-view td.differential-toc-char {
+  padding-right: 0;
+  font-weight: bold;
+  color: #464C5C;
+}
+
+table.aphront-table-view td.differential-toc-prop {
+  padding-left: 0;
+  padding-right: 0;
+  font-weight: bold;
+  color: #464C5C;
+}
+
+table.aphront-table-view td.differential-toc-ftype {
+  padding-left: 0;
+  font-weight: bold;
+  color: #464C5C;
+}
+
+.differential-toc-file {
+  color: #92969D;
+}
+
+.device-phone .differential-toc-file {
+  word-break: break-word;
+}
+
+.differential-toc-cov {
+  color: #464C5C;
+  font-weight: bold;
+}
+
+.differential-toc-reveal-all,
+.differential-toc-edit-all {
+  float: right;
+  margin-left: 4px;
+}
+
+.diff-star-none {
+  color: #74777D;
+}
+
+.diff-star-okay {
+  color: #e67e22;
+}
+
+/* TODO: 'warn' and 'fail' are both red, but we can't make 'warn' yellow since
+   'okay' is a "gold star". */
+.diff-star-warn {
+  color: #c0392b;
+}
+
+.diff-star-fail {
+  color: #c0392b;
+}
+
+.diff-star-skip {
+  color: #6e5cb6;
+}
+
+.differential-toc table td em {
+  color: #74777D;
+}
+
+.differential-toc .button {
+  margin: 8px 0px 0px 8px;
+}
+
+.differential-mcoverage-loading {
+  color: #92969D;
+}
+
+.differential-toc-buttons {
+  border-top: 1px solid #DDE8EF;
+  padding: 8px;
+}
+
+.differential-harbormaster-table-view {
+  margin: 4px 0;
+  border: 1px solid #DDE8EF;
+}
+
+/* From phabricator/webroot/rsrc/css/syntax/syntax-default.css */
+.remarkup-code .bp,
+.remarkup-code .cp,
+.remarkup-code .kp,
+.remarkup-code .kr,
+.remarkup-code .nb {
+  color: #304a96
+}
+
+.remarkup-code .c,
+.remarkup-code .c1,
+.remarkup-code .cm,
+.remarkup-code .cs {
+  color: #74777d
+}
+
+.remarkup-code .gd {
+  color: #a00000
+}
+
+.remarkup-code .gh,
+.remarkup-code .gp {
+  color: #000080
+}
+
+.remarkup-code .gi {
+  color: #00a000
+}
+
+.remarkup-code .go {
+  color: #808080
+}
+
+.remarkup-code .gr {
+  color: #ff0000
+}
+
+.remarkup-code .gt {
+  color: #0040d0
+}
+
+.remarkup-code .gu {
+  color: #800080
+}
+
+.remarkup-code .hll {
+  color: #ffffcc
+}
+
+.remarkup-code .il,
+.remarkup-code .m,
+.remarkup-code .mf,
+.remarkup-code .mh,
+.remarkup-code .mi,
+.remarkup-code .mo {
+  color: #601200
+}
+
+.remarkup-code .k,
+.remarkup-code .kd,
+.remarkup-code .kn,
+.remarkup-code .kt {
+  color: #aa4000
+}
+
+.remarkup-code .kc,
+.remarkup-code .no {
+  color: #000a65
+}
+
+.remarkup-code .na {
+  color: #354bb3
+}
+
+.remarkup-code .nc,
+.remarkup-code .nt,
+.remarkup-code .vc {
+  color: #00702a
+}
+
+.remarkup-code .nd,
+.remarkup-code .ow {
+  color: #aa22ff
+}
+
+.remarkup-code .ne {
+  color: #d2413a
+}
+
+.remarkup-code .nf,
+.remarkup-code .nx {
+  color: #004012
+}
+
+.remarkup-code .ni {
+  color: #92969d
+}
+
+.remarkup-code .nl {
+  color: #a0a000
+}
+
+.remarkup-code .nn {
+  color: #0000ff
+}
+
+.remarkup-code .nv,
+.remarkup-code .vg,
+.remarkup-code .vi {
+  color: #001294
+}
+
+.remarkup-code .o,
+.remarkup-code .ss {
+  color: #aa2211
+}
+
+.remarkup-code .s,
+.remarkup-code .s1,
+.remarkup-code .s2,
+.remarkup-code .sb,
+.remarkup-code .sc,
+.remarkup-code .sx {
+  color: #766510
+}
+
+.remarkup-code .sd,
+.remarkup-code .sh {
+  color: #000000
+}
+
+.remarkup-code .se {
+  color: #bb6622
+}
+
+.remarkup-code .si {
+  color: #bb66bb
+}
+
+.remarkup-code .sr {
+  color: #bb6688
+}
+
+.remarkup-code .w {
+  color: #bbbbbb
+}
+
+/* From phabricator/webroot/rsrc/css/font/phui-font-icon-base.css */
+.phui-font-fa {
+  display: inline-block;
+  color: #4B4D51;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ph-rotate-90 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.ph-rotate-180 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.ph-rotate-270 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+
+.ph-flip-horizontal {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);
+  -webkit-transform: scale(-1, 1);
+  -moz-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  -o-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+
+.ph-flip-vertical {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);
+  -webkit-transform: scale(1, -1);
+  -moz-transform: scale(1, -1);
+  -ms-transform: scale(1, -1);
+  -o-transform: scale(1, -1);
+  transform: scale(1, -1);
+}
+
+.ph-spin {
+  -webkit-animation: spin 2s infinite linear;
+  -moz-animation: spin 2s infinite linear;
+  -o-animation: spin 2s infinite linear;
+  animation: spin 2s infinite linear;
+}
+@-moz-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(359deg);
+  }
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+  }
+}
+@-o-keyframes spin {
+  0% {
+    -o-transform: rotate(0deg);
+  }
+  100% {
+    -o-transform: rotate(359deg);
+  }
+}
+@-ms-keyframes spin {
+  0% {
+    -ms-transform: rotate(0deg);
+  }
+  100% {
+    -ms-transform: rotate(359deg);
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+.phui-icon-view.dark {
+  color: #4B4D51;
+}
+.phui-icon-view.bluegrey {
+  color: #6B748C;
+}
+.phui-icon-view.white {
+  color: #fff;
+}
+.phui-icon-view.red  {
+  color: #c0392b;
+}
+.phui-icon-view.orange {
+  color: #e67e22;
+}
+.phui-icon-view.yellow {
+  color: #f1c40f;
+}
+.phui-icon-view.green {
+  color: #139543
+}
+.phui-icon-view.blue {
+  color: #2980b9;
+}
+.phui-icon-view.sky {
+  color: #3498db;
+}
+.phui-icon-view.indigo {
+  color: #6e5cb6;
+}
+.phui-icon-view.pink {
+  color: #da49be;
+}
+.phui-icon-view.fire {
+  color: #e62f17;
+}
+.phui-icon-view.violet {
+  color: #8e44ad;
+}
+.phui-icon-view.lightbluetext {
+  color: #8C98B8;
+}
+.phui-icon-view.lightgreytext,
+.phui-icon-view.grey {
+  color: rgba(55,55,55,0.3);
+}
+
+/* Backgrounds */
+
+.phui-icon-view.bg-dark {
+  background-color: #4B4D51;
+}
+.phui-icon-view.bg-bluegrey {
+  background-color: #6B748C;
+}
+.phui-icon-view.bg-grey {
+  background-color: #92969D;
+}
+.phui-icon-view.bg-red  {
+  background-color: #c0392b;
+}
+.phui-icon-view.bg-orange {
+  background-color: #e67e22;
+}
+.phui-icon-view.bg-yellow {
+  background-color: #f1c40f;
+}
+.phui-icon-view.bg-green {
+  background-color: #139543
+}
+.phui-icon-view.bg-blue {
+  background-color: #2980b9;
+}
+.phui-icon-view.bg-sky {
+  background-color: #3498db;
+}
+.phui-icon-view.bg-indigo {
+  background-color: #6e5cb6;
+}
+.phui-icon-view.bg-pink {
+  background-color: #da49be;
+}
+.phui-icon-view.bg-fire {
+  background-color: #e62f17;
+}
+.phui-icon-view.bg-violet {
+  background-color: #8e44ad;
+}
+
+/* Hovers */
+
+.device-desktop a.phui-icon-view.lightgreytext:hover,
+.device-desktop a.phui-icon-view.grey:hover {
+  color: #4B4D51;
+}
+
+.device-desktop a.phui-icon-view.bluegrey:hover {
+  color: #464C5C;
+}
+
+/* From phabricator/webroot/rsrc/css/font/font-awesome.css, Font Awesome's stylesheet, for the
+   icons in fonts/icons.woff only. */
+.phui-font-fa:before {
+  font-family: 'differ icons';
+}
+
+.fa-file-image-o:before {
+  content: "\f1c5";
+}
+
+.fa-wrench:before {
+  content: "\f0ad";
+}
+
+.fa-file-sound-o:before {
+  content: "\f1c7";
+}
+
+.fa-file-movie-o:before {
+  content: "\f1c8";
+}
+
+.fa-database:before {
+  content: "\f1c0";
+}
+
+.fa-file-excel-o:before {
+  content: "\f1c3";
+}
+
+.fa-calendar:before {
+  content: "\f073";
+}
+
+.fa-file-archive-o:before {
+  content: "\f1c6";
+}
+
+.fa-file-picture-o:before {
+  content: "\f1c5";
+}
+
+.fa-file-text-o:before {
+  content: "\f0f6";
+}
+
+.fa-file-word-o:before {
+  content: "\f1c2";
+}
+
+.fa-file-pdf-o:before {
+  content: "\f1c1";
+}

@@ -1,0 +1,58 @@
+differ
+Copyright 2026 Miloš Stojanović
+
+differ is available under the Apache 2.0 license. See LICENSE for more information.
+
+differ.py is a Python port of code from Phabricator, Arcanist and libphutil, script.js follows some
+of the same code in JavaScript, and style.css is made from Phabricator's stylesheets. They were
+changed from the originals: translated from PHP, cut down to the diff view, and adapted to work
+without a server.
+
+  Phabricator, Arcanist and libphutil
+  Copyright 2014 Phacility, Inc.
+
+  This software is primarily developed and maintained by Phacility, Inc.
+
+    http://www.phacility.com/
+
+  Portions of this software were developed by various contributors, who
+  retain copyright on their work. These works are licensed to Phacility,
+  Inc.
+
+  Phabricator, Arcanist and libphutil are available under the Apache 2.0
+  license.
+
+  Phabricator and Phacility are trademarks of Phacility, Inc. For
+  additional information about trademarks that pertain to this software,
+  see:
+
+    http://www.phacility.com/trademarks/
+
+The Lato fonts in fonts/ are Copyright (c) 2010-2014 by tyPoland Lukasz Dziedzic, with Reserved Font
+Name "Lato", and are available under the SIL Open Font License 1.1. See fonts/LICENSE-lato.txt.
+
+The file icons come from Font Awesome 4.7.0 by Dave Gandy, http://fontawesome.io. fonts/icons.woff
+is the Font Awesome font cut down to those icons and renamed, available under the SIL Open Font
+License 1.1. See fonts/LICENSE-icons.txt. The rules for them at the end of style.css come from Font
+Awesome's stylesheet, available under the MIT License:
+
+  Copyright (c) Dave Gandy
+
+  Permission is hereby granted, free of charge, to any person obtaining
+  a copy of this software and associated documentation files (the
+  "Software"), to deal in the Software without restriction, including
+  without limitation the rights to use, copy, modify, merge, publish,
+  distribute, sublicense, and/or sell copies of the Software, and to
+  permit persons to whom the Software is furnished to do so, subject to
+  the following conditions:
+
+  The above copyright notice and this permission notice shall be
+  included in all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+  MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+  LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+  OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
